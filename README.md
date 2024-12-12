@@ -97,8 +97,41 @@
 ---
 
 5. **Regras do Sistema**:
-  - Cada horário pode ter até "X" clientes (definido pelo prestador).
-  - Apenas horários com vagas disponíveis são exibidos para clientes.
-  - O pagamento é obrigatório para a confirmação de agendamentos.
-  - Alterações ou cancelamentos podem ser feitos até X horas antes do horário marcado.
-  - O sistema gerencia notificações de forma automática, enviando mensagens programadas para todos os envolvidos.
+
+  - **Definição de Vagas por horário**:
+    - O prestador define quantos clientes oiden ser atendidos simultaneamente em cada horário (Ex.: 4 clientes por vez).
+    - O sistema ajuda automaticamente a exibição de horários disponíveis.
+
+  - **Altereções e Cancelamentos**:
+    - Cliente têm até **X horas** para realizar alterações ou cancelamentos.
+
+    - **Após o prazo**:
+      - Alterações e cancelamentos só podem ser realizados pelo prestador.
+      - Não há reembolso para cancelamentos fora do prazo permitido.
+    
+  - **Pagamento**:
+    - Só são aceitos métodos de que permitem confirmação em tempo real (ex.: PIX, cartão de crédito via gateway de pagamento).
+    - O cliente deve receber uma notificação assim que o pagamento for confirmado.
+
+  - **Notificações Automáticas**:
+
+    - **Exemplo de Lembretes**:
+      - 48 horas antes do agendamento: "Seu horário está próximo! Confira os detalhes e esteja preparado".
+
+    - **Após alterações**: "Seu horário foi atualizado! Veja as informações atualizadas".
+
+---
+
+6. **Pontos Técnicos a Considerar**
+
+  - **Persistência de Dados**:
+    - Usar tabelas separadas para agendamentos, pagamentos e reembolsos no banco de dados.
+    - Relacionar notificações a eventos específicos (ex.: agendamento, pagamento).
+
+  - **Webhook para Pagamentos**:
+    - Configurar webhooks para receber confirmações automáticas de pagamentos.
+    - Isso permite notificações instantâneas e processamento ágil de reembolsos.
+  
+  - **Configuração do Bot Assistente**:
+    - Integrar o bot com APIs do WhatsApp Business (ex.: Twilio, Zenvia).
+    - Configurar mensagens pré-formatadas para cada etapa do fluxo.
