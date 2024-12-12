@@ -2,10 +2,10 @@
   "name": "schedulify",
   "version": "1.0.0",
   "type": "module",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "dev": "nodemon ./src/server.js localhost 3000 || 3001"
+    "dev": "nodemon index.js localhost 3000 || 3001"
   },
   "author": "",
   "license": "MIT",

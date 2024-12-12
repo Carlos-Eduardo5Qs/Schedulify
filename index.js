@@ -3,8 +3,8 @@ dotenv.config();
 
 import express from 'express';
 import cors from 'cors';
-import { CORSconfig } from './config/cors.js';
-import { Router } from './routes/appRouter.js';
+import { CORSconfig } from './src/config/cors.js';
+import { Router } from './src/routes/appRouter.js';
 
 class Server {
   constructor() {
